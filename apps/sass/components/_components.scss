@@ -1,0 +1,87 @@
+@use "../base/mixin" as mi;
+@use "../base/base" as var;
+.logo {
+  @include flexLayout;
+  font-size: 60px;
+  color: $color-primary;
+  width: 110px;
+  height: 110px;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
+  //   responsive
+  @include mi.tablet-devices() {
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+  }
+  @include mi.mobile-devices() {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+  }
+}
+.main-btn {
+  padding: 15px;
+  background-color: transparent;
+  border: 1px solid $color-primary;
+  color: $color-primary;
+  @include textStyle;
+  cursor: pointer;
+  transition: all, 0.4s;
+  &:hover {
+    background-color: $color-primary;
+    color: $color-dark;
+  }
+}
+.resturant-name {
+  margin-left: 10px;
+  text-align: center;
+  color: $color-secondary;
+  @include textStyle;
+  h1 {
+    font-family: $font-josefinSans;
+    font-size: 55px;
+    font-weight: 100;
+  }
+  p {
+    padding: 10px;
+    font-family: $font-josefinSans;
+  }
+  //   responsive
+  @include mi.tablet-devices() {
+    h1 {
+      font-size: 30px;
+      font-weight: 100;
+    }
+  }
+  @include mi.mobile-devices() {
+    h1 {
+      font-size: 20px;
+      font-weight: 100;
+    }
+  }
+}
+.hamburger-menu {
+  width: 40px;
+  height: 40px;
+  z-index: 250;
+  position: fixed;
+  top: 8%;
+  right: 2%;
+  .menu {
+    transition: transform 0.5s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    &-line {
+      transition: all 0.5s 0.5s;
+      transform-origin: right;
+      width: 100%;
+      height: 4px;
+      background-color: $color-primary;
+    }
+  }
+}

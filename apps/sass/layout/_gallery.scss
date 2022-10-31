@@ -1,0 +1,73 @@
+//  utils
+@use "../base/mixin" as mi;
+@use "../base/base" as var;
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  @include mi.mobile-devices() {
+    flex-direction: column;
+  }
+  @include mi.tablet-devices() {
+    flex-direction: column;
+  }
+  .card {
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    height: 500px;
+    margin-bottom: 30px;
+    border: 1px solid var.$color-primary;
+    @include flexLayout;
+    flex-direction: column;
+    @include mi.mobile-devices() {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    @include mi.tablet-devices() {
+      margin: 0 auto;
+      margin-bottom: 30px;
+      width: 90%;
+      max-width: 400px;
+    }
+    @include mi.laptop-devices() {
+      margin-top: 0;
+      width: 350px;
+    }
+    &:hover .card-overlay {
+      left: 0;
+    }
+    &-overlay {
+      left: -100%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: var.$color-primary, $alpha: 0.6);
+      color: white;
+      transition: left 0.5s;
+      .card-description {
+        @include centering(50%);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    h3 {
+      color: var.$color-dark;
+      font-size: 30px;
+      padding: 10px;
+    }
+    .main-btn {
+      margin-bottom: 20px;
+      background-color: white;
+      color: black;
+      border-radius: 30px;
+    }
+  }
+}
